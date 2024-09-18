@@ -170,13 +170,14 @@
     (if-let [k (first (filter done? (keys state)))]
       (reverse (cons k (state k)))
 
-      (recur (into visited (keys state))
-             (into {}
-                   (for [[p ps] state
-                         :let [path (cons p ps)]
-                         v (branch p)
-                         :when (not (visited v))]
-                     [v path]))))))
+      (when (not-empty state)
+        (recur (into visited (keys state))
+               (into {}
+                     (for [[p ps] state
+                           :let [path (cons p ps)]
+                           v (branch p)
+                           :when (not (visited v))]
+                       [v path])))))))
 
 (comment
   (bfs #(= % :g)
