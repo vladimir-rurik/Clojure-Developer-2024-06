@@ -12,6 +12,11 @@
                  [compojure "1.7.1"]
                  [org.slf4j/slf4j-simple "2.0.10"]
                  
+                 ;; DB
+                 [com.h2database/h2 "2.3.232"]
+                 [com.github.seancorfield/next.jdbc  "1.3.939"]
+                 [com.github.seancorfield/honeysql "2.6.1196"]
+                 
                  ;; Frontend
                  [reagent "1.2.0"]
                  [org.clojure/core.async "1.6.681"]

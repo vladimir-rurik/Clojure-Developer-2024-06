@@ -1,6 +1,7 @@
 (ns url-shortener.main
   (:require [ring.adapter.jetty :as jetty]
-            [url-shortener.web :as web])
+            [url-shortener.web :as web]
+            [url-shortener.db :as db])
   (:import [org.eclipse.jetty.server Server]))
 
 (set! *warn-on-reflection* true)
@@ -17,6 +18,7 @@
   (println "Server stopped"))
 
 (defn -main [& _]
+  (db/init-db)
   (let [server (start-server)]
     (.addShutdownHook
      (Runtime/getRuntime)
