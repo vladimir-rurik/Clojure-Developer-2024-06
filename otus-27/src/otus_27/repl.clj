@@ -10,7 +10,7 @@
 
 ;; next.jdbc
 
-;; db-spec -> DataSource -> Connection
+;; db-spec <- DataSource <- Connection
 (def db {:dbtype "h2" ; h2:mem
          :dbname "example"})
 
