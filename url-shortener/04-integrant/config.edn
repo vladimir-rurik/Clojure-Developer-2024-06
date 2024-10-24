@@ -1,0 +1,8 @@
+{:url-shortener.db/db {:jdbc-url "jdbc:h2:./database;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH"}
+ 
+ :url-shortener.web/handler
+ {:db #ig/ref :url-shortener.db/db}
+ 
+ :url-shortener.web/server
+ {:port 8000
+  :handler #ig/ref :url-shortener.web/handler}}
