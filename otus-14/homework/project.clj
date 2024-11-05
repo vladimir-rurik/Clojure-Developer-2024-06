@@ -6,10 +6,13 @@
                  [ring/ring-core "1.10.0"]
                  [ring/ring-jetty-adapter "1.10.0"]
                  [ring/ring-defaults "0.3.4"]
+                 [ring/ring-json "0.5.1"]
                  [compojure "1.7.0"]
                  [hiccup "1.0.5"]
-                 [cheshire "5.11.0"]]
+                 [cheshire "5.11.0"]
+                 [org.clojure/test.check "1.1.1"]] 
   :main ^:skip-aot spec-faker.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
-                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
+                       :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}
+             :dev {:dependencies [[ring/ring-mock "0.3.2"]]}})
